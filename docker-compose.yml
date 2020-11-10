@@ -8,9 +8,10 @@ services:
       - 27017:27017
     command: --smallfiles
   app:
+    build: ./
     depends_on:
       - mongodb
-    image: vremere/vremere_test_task_2
+    image: vremere/vremere_test_task_3
     ports:
       - 8081:8081
     links:
