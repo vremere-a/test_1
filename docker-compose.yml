@@ -1,0 +1,17 @@
+version: "3.2"
+
+services:
+  mongodb:
+    image: mongo:3.2.4
+    container_name: "mongodb_test_task_2"
+    ports:
+      - 27017:27017
+    command: --smallfiles
+  app:
+    depends_on:
+      - mongodb
+    image: vremere/vremere_test_task_2
+    ports:
+      - 8081:8081
+    links:
+      - mongodb
